@@ -67,4 +67,11 @@ class DefaultControllerTest extends WebTestCase
     		'def' => 'def'
     	), $items);
     }
+
+    public function testKataTemplatesWillHaveTheSameAmountAsKatas()
+    {
+    	$this->setUpCrawler();
+    	$countKatas = count(KataTemplate::getAll());
+        $this->assertEquals($countKatas, $this->crawler->filter('#form_kataTemplate option')->count());
+    }
 }
