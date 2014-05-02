@@ -28,8 +28,8 @@ class DefaultControllerTest extends WebTestCase
         $this->assertEquals($this->crawler->filter('textarea#form_code')->count(), 1);
     }
 
-    /*public function testHasMenuToSelectKata()
+    public function testHasMenuToSelectKata()
     {
-        $this->assertEquals($this->crawler->filter('#form_kata')->count(), 1);
-    }*/
+        $this->assertEquals($this->crawler->filter('#form_kataTemplate')->count(), 1);
+    }
 }
