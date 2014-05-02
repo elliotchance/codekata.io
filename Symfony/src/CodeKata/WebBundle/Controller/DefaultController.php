@@ -12,7 +12,9 @@ class DefaultController extends Controller
         $kata = new Kata();
 
         $form = $this->createFormBuilder($kata)
-            ->add('kataTemplate', 'choice')
+            ->add('kataTemplate', 'choice', array(
+                'choices' => array('m' => 'Male', 'f' => 'Female')
+            ))
             ->add('code', 'textarea')
             ->add('run', 'submit')
             ->getForm();

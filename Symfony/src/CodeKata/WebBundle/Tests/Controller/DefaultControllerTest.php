@@ -32,4 +32,9 @@ class DefaultControllerTest extends WebTestCase
     {
         $this->assertEquals($this->crawler->filter('#form_kataTemplate')->count(), 1);
     }
+
+    public function testKataTemplatesWillHaveMoreThanZeroItems()
+    {
+        $this->assertGreaterThan(0, $this->crawler->filter('#form_kataTemplate option')->count());
+    }
 }
