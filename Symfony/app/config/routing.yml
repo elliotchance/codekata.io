@@ -1,0 +1,3 @@
+code_kata_web:
+    resource: "@CodeKataWebBundle/Resources/config/routing.yml"
+    prefix:   /
