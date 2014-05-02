@@ -4,7 +4,14 @@ namespace CodeKata\WebBundle\Entity;
 
 class KataTemplate
 {
+    protected $title;
+
     protected $steps = array();
+
+    public function __construct($title)
+    {
+        $this->title = $title;
+    }
 
     public function getSteps()
     {
@@ -14,7 +21,12 @@ class KataTemplate
     public static function getAll()
     {
         return array(
-            new KataTemplate()
+            new KataTemplate('My Kata')
         );
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
     }
 }
