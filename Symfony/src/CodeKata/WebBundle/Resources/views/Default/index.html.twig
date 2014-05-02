@@ -13,18 +13,13 @@
 </head>
 
 <body>
-    <div class="container">
-  Hello {{ name }}!
-</div>
+	<form action="..." method="..." class="form-horizontal">
+	    {{ bootstrap_set_style('horizontal') }}
 
-<form action="..." method="..." class="form-horizontal">
-    {{ bootstrap_set_style('horizontal') }}
+	    {{ form_row(form.code) }}
 
-    {{ form_row(form.code) }}
-
-    {{ bootstrap_set_style('') }}
-</form>
-
+	    {{ bootstrap_set_style('') }}
+	</form>
 
     <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
     <script src="{{ asset('js/jquery.js') }}"></script>

@@ -7,7 +7,7 @@ use CodeKata\WebBundle\Entity\Kata;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
         $kata = new Kata();
 
@@ -17,7 +17,6 @@ class DefaultController extends Controller
             ->getForm();
 
         return $this->render('CodeKataWebBundle:Default:index.html.twig', array(
-        	'name' => $name,
             'form' => $form->createView(),
         ));
     }

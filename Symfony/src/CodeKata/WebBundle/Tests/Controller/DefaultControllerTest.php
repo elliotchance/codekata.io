@@ -6,12 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
+    public function testIndexHasBoxForKataCode()
     {
         $client = static::createClient();
-
-        $crawler = $client->request('GET', '/hello/Fabien');
-
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
+        $crawler = $client->request('GET', '/');
+        $this->assertEquals($crawler->filter('#form_code')->count(), 1);
     }
 }
