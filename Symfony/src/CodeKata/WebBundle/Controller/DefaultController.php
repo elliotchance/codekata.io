@@ -13,7 +13,7 @@ class DefaultController extends Controller
 
         $form = $this->createFormBuilder($kata)
             ->add('code', 'text')
-            ->add('save', 'submit')
+            ->add('run', 'submit')
             ->getForm();
 
         return $this->render('CodeKataWebBundle:Default:index.html.twig', array(

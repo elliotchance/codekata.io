@@ -12,4 +12,11 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/');
         $this->assertEquals($crawler->filter('#form_code')->count(), 1);
     }
+
+    public function testIndexHasRunButton()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $this->assertEquals($crawler->filter('#form_run')->count(), 1);
+    }
 }
