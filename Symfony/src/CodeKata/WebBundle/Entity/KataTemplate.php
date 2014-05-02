@@ -10,4 +10,11 @@ class KataTemplate
     {
         return $this->steps;
     }
+
+    public static function getAll()
+    {
+        return array(
+            new KataTemplate()
+        );
+    }
 }
