@@ -4,9 +4,15 @@ namespace CodeKata\WebBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use CodeKata\WebBundle\Entity\Kata;
+use CodeKata\WebBundle\Entity\KataTemplate;
 
 class DefaultController extends Controller
 {
+    public function getKatas()
+    {
+        return KataTemplate::getAll();
+    }
+
     public function indexAction()
     {
         $kata = new Kata();
