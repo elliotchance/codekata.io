@@ -27,4 +27,9 @@ class DefaultControllerTest extends WebTestCase
     {
         $this->assertEquals($this->crawler->filter('textarea#form_code')->count(), 1);
     }
+
+    /*public function testHasMenuToSelectKata()
+    {
+        $this->assertEquals($this->crawler->filter('#form_kata')->count(), 1);
+    }*/
 }

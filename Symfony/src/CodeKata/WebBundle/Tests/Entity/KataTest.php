@@ -20,4 +20,10 @@ class KataTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals('', $this->kata->getCode());
     }
+
+    public function testCanSetAndGetKataTemplate()
+    {
+        $this->kata->setKataTemplate(1);
+        $this->assertEquals(1, $this->kata->getKataTemplate());
+    }
 }
