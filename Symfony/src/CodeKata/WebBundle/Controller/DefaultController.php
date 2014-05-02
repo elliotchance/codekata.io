@@ -13,6 +13,16 @@ class DefaultController extends Controller
         return KataTemplate::getAll();
     }
 
+    public function getKataMenuItems()
+    {
+        $katas = $this->getKatas();
+        $r = array();
+        foreach($katas as $kata) {
+            $r[$kata->getTitle()] = $kata->getTitle();
+        }
+        return $r;
+    }
+
     public function indexAction()
     {
         $kata = new Kata();

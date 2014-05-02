@@ -50,10 +50,21 @@ class DefaultControllerTest extends WebTestCase
     	$this->assertEquals($controller->getKatas(), KataTemplate::getAll());
     }
 
-    /*public function testCanTranslateKatasIntoMenuChoices()
+    public function testCanTranslateKatasIntoMenuChoices()
     {
-    	$controller = $this->getMock('CodeKata\WebBundle\Controller\DefaultController');
+    	$katas = array(
+			new KataTemplate('abc'),
+			new KataTemplate('def')
+		);
+    	$controller = $this->getMock('CodeKata\WebBundle\Controller\DefaultController', array('getKatas'));
     	$controller->expects($this->once())
-    	           ->method('get')
-    }*/
+    	           ->method('getKatas')
+    	           ->will($this->returnValue($katas));
+
+    	$items = $controller->getKataMenuItems();
+    	$this->assertEquals(array(
+    		'abc' => 'abc',
+    		'def' => 'def'
+    	), $items);
+    }
 }
