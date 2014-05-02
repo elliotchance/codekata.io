@@ -6,17 +6,25 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
+	public function setUp()
+	{
+		parent::setUp();
+        $client = static::createClient();
+        $this->crawler = $client->request('GET', '/');
+	}
+
     public function testIndexHasBoxForKataCode()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/');
-        $this->assertEquals($crawler->filter('#form_code')->count(), 1);
+        $this->assertEquals($this->crawler->filter('#form_code')->count(), 1);
     }
 
     public function testIndexHasRunButton()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/');
-        $this->assertEquals($crawler->filter('#form_run')->count(), 1);
+        $this->assertEquals($this->crawler->filter('#form_run')->count(), 1);
+    }
+
+    public function testCodeBoxIsATextArea()
+    {
+        $this->assertEquals($this->crawler->filter('textarea#form_code')->count(), 1);
     }
 }
