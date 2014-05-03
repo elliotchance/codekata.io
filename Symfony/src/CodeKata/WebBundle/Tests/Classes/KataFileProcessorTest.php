@@ -12,7 +12,7 @@ class KataFileProcessorsTest extends \PHPUnit_Framework_TestCase
     {
         parent::setUp();
         $processor = new KataFileProcessor();
-        $this->kataTemplate = $processor->kataFromFile('FizzBuzz.yml');
+        $this->kataTemplate = $processor->kataFromFile('fizzbuzz');
     }
 
     public function testGetKataIdFromFile()
@@ -27,10 +27,7 @@ class KataFileProcessorsTest extends \PHPUnit_Framework_TestCase
 
     public function testGetKataStepsFromFile()
     {
-        $this->assertEquals($this->kataTemplate->getSteps(), array(
-            'Step 1',
-            'Step 2'
-        ));
+        $this->assertCount(4, $this->kataTemplate->getSteps());
     }
 
     public function testGetKataDescriptionFromFile()
