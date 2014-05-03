@@ -29,4 +29,9 @@ class KataTemplate
     {
         return $this->title;
     }
+
+    public function getId()
+    {
+        return 'mytitle';
+    }
 }
