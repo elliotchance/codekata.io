@@ -6,32 +6,26 @@ use CodeKata\WebBundle\Classes\KataFileProcessor;
 
 class KataFileProcessorsTest extends \PHPUnit_Framework_TestCase
 {
-    protected $kataTemplate;
-
-    public function setUp()
+    public function getStub($class, array $methods)
     {
-        parent::setUp();
-        $processor = new KataFileProcessor();
-        $this->kataTemplate = $processor->kataFromFile('fizzbuzz');
+        $mock = $this->getMock($class, array_keys($methods));
+        foreach($methods as $method => $returnValue) {
+            $mock->expects($this->any())
+                 ->method($method)
+                 ->will($this->returnValue($returnValue));
+        }
+        return $mock;
     }
 
-    public function testGetKataIdFromFile()
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage The 'id' attribute is not provided.
+     */
+    public function testExceptionIsThrownIfIdIsNotProivdedInTheFile()
     {
-        $this->assertEquals($this->kataTemplate->getId(), 'fizzbuzz');
-    }
-
-    public function testGetKataTitleFromFile()
-    {
-        $this->assertEquals($this->kataTemplate->getTitle(), 'FizzBuzz');
-    }
-
-    public function testGetKataStepsFromFile()
-    {
-        $this->assertCount(4, $this->kataTemplate->getSteps());
-    }
-
-    public function testGetKataDescriptionFromFile()
-    {
-        $this->assertTrue(strpos($this->kataTemplate->getDescription(), 'multiples of three print "Fizz"') !== false);
+        $processor = $this->getStub('\CodeKata\WebBundle\Classes\KataFileProcessor', array(
+            'parseFile' => array()
+        ));
+        $kataTemplate = $processor->kataFromFile('fizzbuzz');
     }
 }
