@@ -37,4 +37,9 @@ class KataTemplate
     {
         return $this->id;
     }
+
+    public function setSteps(array $steps)
+    {
+        $this->steps = $steps;
+    }
 }

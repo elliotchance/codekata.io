@@ -12,7 +12,9 @@ class KataFileProcessor
     {
         $path = dirname(__FILE__) . "/../Resources/katas/$fileName";
         $array = Yaml::parse($path);
-        return new KataTemplate($array['id'], $array['title']);
+        $kataTemplate = new KataTemplate($array['id'], $array['title']);
+        $kataTemplate->setSteps($array['steps']);
+        return $kataTemplate;
     }
 
 }
