@@ -27,4 +27,10 @@ class KataTemplateTest extends \PHPUnit_Framework_TestCase
         $kataTemplate = new KataTemplate('mykata', 'my title');
         $this->assertEquals($kataTemplate->getId(), 'mykata');
     }
+
+    public function testKataMustBeGivenADescriptionWhenInitialised()
+    {
+        $kataTemplate = new KataTemplate('mykata', 'my title', 'my desc');
+        $this->assertEquals($kataTemplate->getDescription(), 'my desc');
+    }
 }

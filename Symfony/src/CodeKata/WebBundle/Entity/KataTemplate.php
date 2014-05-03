@@ -42,4 +42,9 @@ class KataTemplate
     {
         $this->steps = $steps;
     }
+
+    public function getDescription()
+    {
+        return 'my desc';
+    }
 }
