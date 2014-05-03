@@ -31,8 +31,12 @@ class KataFileProcessor
         }
 
         $kataTemplate = new KataTemplate($array['id'], $array['title']);
-        $kataTemplate->setDescription($array['description']);
-        $kataTemplate->setSteps($array['steps']);
+        if(array_key_exists('description', $array)) {
+            $kataTemplate->setDescription($array['description']);
+        }
+        if(array_key_exists('steps', $array)) {
+            $kataTemplate->setSteps($array['steps']);
+        }
         return $kataTemplate;
     }
 

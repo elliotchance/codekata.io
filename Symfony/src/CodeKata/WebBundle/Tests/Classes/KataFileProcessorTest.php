@@ -40,4 +40,13 @@ class KataFileProcessorsTest extends \PHPUnit_Framework_TestCase
         ));
         $kataTemplate = $processor->kataFromFile('fizzbuzz');
     }
+
+    public function testDescriptionIsOptional()
+    {
+        $processor = $this->getStub('\CodeKata\WebBundle\Classes\KataFileProcessor', array(
+            'parseFile' => array('id' => 'foo', 'title' => 'bar')
+        ));
+        $kataTemplate = $processor->kataFromFile('fizzbuzz');
+        $this->assertNull($kataTemplate->getDescription());
+    }
 }
