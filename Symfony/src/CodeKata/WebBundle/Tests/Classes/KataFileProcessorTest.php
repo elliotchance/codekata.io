@@ -6,10 +6,22 @@ use CodeKata\WebBundle\Classes\KataFileProcessor;
 
 class KataFileProcessorsTest extends \PHPUnit_Framework_TestCase
 {
+    protected $kataTemplate;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $processor = new KataFileProcessor();
+        $this->kataTemplate = $processor->kataFromFile('FizzBuzz.yml');
+    }
+
     public function testCanCreateKataIdFromFile()
     {
-        $processor = new KataFileProcessor();
-        $kataTemplate = $processor->kataFromFile('FizzBuzz.yml');
-        $this->assertEquals($kataTemplate->getId(), 'fizzbuzz');
+        $this->assertEquals($this->kataTemplate->getId(), 'fizzbuzz');
+    }
+
+    public function testCanCreateKataTitleFromFile()
+    {
+        $this->assertEquals($this->kataTemplate->getTitle(), 'FizzBuzz');
     }
 }
