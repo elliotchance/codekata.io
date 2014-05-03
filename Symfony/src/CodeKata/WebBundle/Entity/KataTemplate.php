@@ -8,6 +8,8 @@ class KataTemplate
 
     protected $title;
 
+    protected $description;
+
     protected $steps = array();
 
     public function __construct($id, $title)
@@ -43,8 +45,13 @@ class KataTemplate
         $this->steps = $steps;
     }
 
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
     public function getDescription()
     {
-        return 'my desc';
+        return $this->description;
     }
 }

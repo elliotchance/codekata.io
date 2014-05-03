@@ -32,4 +32,9 @@ class KataFileProcessorsTest extends \PHPUnit_Framework_TestCase
             'Step 2'
         ));
     }
+
+    public function testGetKataDescriptionFromFile()
+    {
+        $this->assertTrue(strpos($this->kataTemplate->getDescription(), 'multiples of three print "Fizz"') !== false);
+    }
 }
