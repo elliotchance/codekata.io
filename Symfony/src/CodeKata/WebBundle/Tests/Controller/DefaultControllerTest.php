@@ -53,8 +53,8 @@ class DefaultControllerTest extends WebTestCase
     public function testCanTranslateKatasIntoMenuChoices()
     {
     	$katas = array(
-			new KataTemplate('abc'),
-			new KataTemplate('def')
+			new KataTemplate('abc', 'abc'),
+			new KataTemplate('def', 'def')
 		);
     	$controller = $this->getMock('CodeKata\WebBundle\Controller\DefaultController', array('getKatas'));
     	$controller->expects($this->once())

@@ -6,7 +6,7 @@ class KataTemplateTest extends \PHPUnit_Framework_TestCase
 {
 	public function testHasNoStepsToBeginWith()
     {
-        $kataTemplate = new KataTemplate('my kata');
+        $kataTemplate = new KataTemplate('mykata', 'my title');
         $this->assertCount(0, $kataTemplate->getSteps());
     }
 
@@ -18,13 +18,13 @@ class KataTemplateTest extends \PHPUnit_Framework_TestCase
 
     public function testTemplatesMustBeInitialiseWithATitle()
     {
-        $kataTemplate = new KataTemplate('my title');
+        $kataTemplate = new KataTemplate('mykata', 'my title');
         $this->assertEquals('my title', $kataTemplate->getTitle());
     }
 
-    public function testKataHasAnId()
+    public function testKataMustBeGivenAnIdWhenInitialised()
     {
-        $kataTemplate = new KataTemplate('my title');
-        $this->assertEquals($kataTemplate->getId(), 'mytitle');
+        $kataTemplate = new KataTemplate('mykata', 'my title');
+        $this->assertEquals($kataTemplate->getId(), 'mykata');
     }
 }
