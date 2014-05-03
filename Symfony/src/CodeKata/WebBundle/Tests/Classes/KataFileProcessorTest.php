@@ -28,4 +28,16 @@ class KataFileProcessorsTest extends \PHPUnit_Framework_TestCase
         ));
         $kataTemplate = $processor->kataFromFile('fizzbuzz');
     }
+
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage The 'title' attribute is not provided.
+     */
+    public function testExceptionIsThrownIfTitleIsNotProivdedInTheFile()
+    {
+        $processor = $this->getStub('\CodeKata\WebBundle\Classes\KataFileProcessor', array(
+            'parseFile' => array('id' => 'bla')
+        ));
+        $kataTemplate = $processor->kataFromFile('fizzbuzz');
+    }
 }

@@ -23,8 +23,11 @@ class KataFileProcessor
     {
         $path = dirname(__FILE__) . "/../Resources/katas/{$fileName}.yml";
         $array = $this->parseFile($path);
-        if(!array_key_exists('id', $array)) {
-            throw new \Exception("The 'id' attribute is not provided.");
+        $required = array('id', 'title');
+        foreach($required as $r) {
+            if(!array_key_exists($r, $array)) {
+                throw new \Exception("The '$r' attribute is not provided.");
+            }
         }
 
         $kataTemplate = new KataTemplate($array['id'], $array['title']);
